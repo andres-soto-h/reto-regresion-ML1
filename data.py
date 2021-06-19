@@ -30,6 +30,17 @@ def get_dataset(reader: DatasetReader, splits: t.Iterable[SplitName]):
     #split_mapping = {"train": (X, y), "test": (X, y)}
     return {k: split_mapping[k] for k in splits}
 
+def get_dataset_mod(reader: DatasetReader, splits: t.Iterable[SplitName]):
+    df = reader()
+    df = clean_dataset(df)
+    y = df["y"]
+    X = df.drop(columns=["y"])
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.3, random_state=1, stratify=X["age_range"]
+    )
+    split_mapping = {"train": (X, y), "test": (X, y)}
+    return {k: split_mapping[k] for k in splits}
+    
 
 def clean_dataset(df: pd.DataFrame) -> pd.DataFrame:
     cleaning_fn = _chain(
