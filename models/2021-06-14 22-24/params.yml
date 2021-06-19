@@ -1,0 +1,15 @@
+- name: categorical-encoder
+  params:
+    force_dense_array: true
+    one_hot: false
+    pass_through_columns: null
+- name: crosser
+  params:
+    columns:
+    - age
+    - bmi
+- name: gradient-boosting-regressor
+  params:
+    learning_rate: 0.05
+    max_depth: 2
+    n_estimators: 145

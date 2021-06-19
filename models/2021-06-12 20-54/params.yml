@@ -1,0 +1,14 @@
+- name: categorical-encoder
+  params:
+    force_dense_array: true
+    one_hot: false
+    pass_through_columns: null
+- name: crosser
+  params:
+    columns:
+    - age
+    - bmi
+- name: standard-scaler
+  params: {}
+- name: linear-regressor
+  params: {}

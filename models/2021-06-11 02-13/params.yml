@@ -1,0 +1,12 @@
+- name: categorical-encoder
+  params:
+    force_dense_array: true
+    one_hot: false
+    pass_through_columns: null
+- name: standard-scaler
+  params: {}
+- name: gradient-boosting-regressor
+  params:
+    learning_rate: 0.05
+    n_estimators: 130
+    subsample: 1
